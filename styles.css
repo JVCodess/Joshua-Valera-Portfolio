@@ -1,0 +1,194 @@
+/* Basic Reset */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* Ensures padding and borders don't affect element's width/height */
+}
+
+/* Global styles */
+body {
+  font-family: 'Crimson Text', serif; /* Universal font */
+  background-color: #242124; /* Dark background for the page */
+  color: white; /* White text color */
+  height: 100vh; /* Full height of the viewport */
+  overflow: hidden; /* Prevents body scroll, so only the content scrolls */
+}
+
+.container {
+  display: flex;
+  flex-direction: row; /* Align elements horizontally */
+  height: 100vh; /* Set container height to 100% of the viewport */
+  width: 100%; /* Full width */
+}
+
+/* Sidebar styles */
+.sidebar {
+  display: flex;
+  flex-direction: column; /* Stack sidebar elements vertically */
+  align-items: center; /* Center items horizontally */
+  background-color: #1a2421; /* Dark background color */
+  padding: 20px;
+  border-radius: 8px; /* Rounded corners */
+  border: 2px solid darkgray; /* Dark gray border */
+  box-shadow: 0 0 10px rgba(169, 169, 169, 0.8); /* Dark gray shadow/glow effect */
+  width: 259px; /* Fixed width for the sidebar */
+  position: sticky; /* Sidebar stays fixed while scrolling */
+  top: 0; /* Keeps it at the top of the screen */
+  overflow-y: auto; /* Enable vertical scroll if the sidebar content exceeds the height */
+  height: 100%; /* This ensures the sidebar takes the full height of the parent container */
+  max-height: 100vh; /* Make sure it doesn't exceed the viewport height */
+}
+
+/* Profile image styles */
+.profile-image {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%; /* Circular image */
+  object-fit: cover; /* Prevent distortion */
+  margin-bottom: 20px; /* Space below the image */
+}
+
+/* Sidebar heading styles */
+h2 {
+  text-align: center;
+  font-size: 1.5em;
+  color: white;
+  margin-bottom: 30px; /* Space between profile and navigation */
+}
+
+/* Navigation styles */
+.nav ul {
+  list-style-type: none; /* Remove bullets */
+  padding: 0;
+  margin: 0;
+  width: 100%; /* Make the list take full width */
+}
+
+.nav li {
+  width: 100%; /* Make the list items take full width */
+}
+
+nav a {
+  display: block;
+  text-decoration: none; /* Remove underlines */
+  color: white; /* Text color */
+  font-weight: bold; /* Bold text */
+  padding: 15px 20px; /* Padding around the link */
+  text-align: center; /* Center the text */
+  border-radius: 5px; /* Rounded corners */
+  margin-bottom: 10px; /* Space between links */
+  transition: all 0.3s ease; /* Smooth transition on hover */
+}
+
+nav a:hover {
+  background-color: #d2b48c; /* Tan background color on hover */
+  color: white; /* White text color on hover */
+}
+
+/* Main content area */
+.main-content {
+  flex-grow: 1; /* Makes the main content take up the remaining space */
+  margin: 15px; /* Margin for the main content */
+  padding: 20px; /* Padding inside the main content */
+  height: 100vh; /* Ensure the height of the main content matches the sidebar height */
+  overflow-y: auto; /* Enables scrolling when content exceeds the available space */
+  display: flex;
+  flex-direction: column; /* Stack content vertically */
+  justify-content: flex-start; /* Align the content to the top */
+  overflow: hidden; /* Prevents the body from scrolling */
+  box-shadow: 0 0 15px rgba(169, 169, 169, 0.8); /* Glow effect for main content */
+  border-radius: 8px; /* Rounded corners for the main content area */
+}
+
+/* Main Box styles */
+.main-box {
+  background-color: #1a2421; /* Dark background */
+  padding: 10px;
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Light shadow */
+  position: relative; /* Position for the main content */
+  margin: 15px 12px;
+  min-width: 259px;
+  max-height: calc(100vh - 30px); /* Ensures the content doesn't overflow the page height */
+  overflow-y: auto; /* Allows scrolling for overflowing content inside the box */
+}
+
+/* Main Box glow effect */
+.main-box::before {
+  content: "";
+  position: absolute;
+  top: -3px;
+  left: -3px;
+  width: calc(100% + 6px);
+  height: calc(100% + 6px);
+  border: 2px solid darkgray; /* Border around the main box */
+  box-shadow: 0 0 10px rgba(169, 169, 169, 0.8); /* Dark gray glow effect */
+  border-radius: 8px; /* Rounded corners */
+  z-index: -1; /* Keeps the glow behind the main box */
+}
+
+/* Contact form styles */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px; /* Space between form fields */
+  padding: 20px;
+  background-color: #1a2421; /* Matching dark background */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 0 10px rgba(169, 169, 169, 0.8); /* Subtle glow effect */
+}
+
+form label {
+  font-weight: bold;
+  color: black;
+}
+
+form input, form textarea {
+  padding: 10px;
+  border: 2px solid white;
+  border-radius: 5px;
+  background-color: #333; /* Dark background for input */
+  color: white;
+  font-size: 1rem;
+}
+
+form input:focus, form textarea:focus {
+  outline: none;
+  box-shadow: 0 0 5px rgba(210, 180, 140, 0.8); /* Glow effect on focus */
+}
+
+form button {
+  background-color: #333;
+  font-weight: bold;
+  color: black;
+  border: none;
+  padding: 10px 15px;
+  font-size: 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+form button:hover {
+  background-color: white; 
+}
+
+
+/* Responsive Design for screens below 1025px */
+@media screen and (max-width: 1025px) {
+  .container {
+    flex-direction: column; /* Stack container elements vertically */
+  }
+
+  .sidebar {
+    width: 100%; /* Sidebar takes full width */
+    margin-bottom: 20px; /* Space below sidebar */
+    height: auto; /* Auto height for smaller screens */
+  }
+
+  .main-box {
+    width: 100%; /* Main box takes full width */
+  }
+}
